@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Meme EditorVC-->
@@ -40,7 +41,7 @@
                                 </items>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-EW-vRi">
-                                <rect key="frame" x="0.0" y="8" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="9IC-z8-AFP"/>
                                 </constraints>
@@ -52,31 +53,55 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7sx-bu-wT2">
-                                <rect key="frame" x="0.0" y="52" width="600" height="504"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2B2-8B-0p6">
+                                <rect key="frame" x="20" y="511" width="560" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="ynO-2d-Cud">
+                                <rect key="frame" x="20" y="59" width="560" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7sx-bu-wT2" secondAttribute="trailing" id="2qe-jb-LUV"/>
-                            <constraint firstItem="pVg-EW-vRi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="8" id="3tY-DO-j1g"/>
+                            <constraint firstItem="pVg-EW-vRi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3tY-DO-j1g"/>
+                            <constraint firstItem="6Y5-9q-eQp" firstAttribute="top" secondItem="2B2-8B-0p6" secondAttribute="bottom" constant="15" id="6hP-au-m7a"/>
                             <constraint firstItem="7sx-bu-wT2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7Jf-aC-mx4"/>
+                            <constraint firstItem="ynO-2d-Cud" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="LaV-7l-j2H"/>
                             <constraint firstItem="6Y5-9q-eQp" firstAttribute="top" secondItem="7sx-bu-wT2" secondAttribute="bottom" id="Ld2-dt-zYO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6Y5-9q-eQp" secondAttribute="bottom" id="RIe-47-hYS"/>
                             <constraint firstAttribute="trailing" secondItem="6Y5-9q-eQp" secondAttribute="trailing" id="XK9-Hf-kzu"/>
                             <constraint firstItem="pVg-EW-vRi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b5d-AD-jCL"/>
+                            <constraint firstItem="2B2-8B-0p6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jgg-15-8Pt"/>
+                            <constraint firstItem="ynO-2d-Cud" firstAttribute="top" secondItem="pVg-EW-vRi" secondAttribute="bottom" constant="15" id="m1Y-HP-l3W"/>
                             <constraint firstItem="7sx-bu-wT2" firstAttribute="top" secondItem="pVg-EW-vRi" secondAttribute="bottom" id="nMD-u9-s2Z"/>
                             <constraint firstItem="6Y5-9q-eQp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oDZ-Pb-kBY"/>
+                            <constraint firstItem="ynO-2d-Cud" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sYP-Lh-ZYG"/>
+                            <constraint firstItem="2B2-8B-0p6" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uEd-Ur-iar"/>
                             <constraint firstAttribute="trailing" secondItem="pVg-EW-vRi" secondAttribute="trailing" id="xr0-C5-aJo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="2B2-8B-0p6" id="P0L-DF-4sY"/>
                         <outlet property="cameraButton" destination="GM1-Th-MOr" id="EW2-xd-mvx"/>
                         <outlet property="chosenImage" destination="7sx-bu-wT2" id="uPb-ge-fza"/>
+                        <outlet property="topTextField" destination="ynO-2d-Cud" id="L8d-Q4-YWI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="600" y="442"/>
         </scene>
     </scenes>
 </document>
