@@ -54,6 +54,9 @@
 		70F47E6F1C5D0E4C00ECD993 /* MemeMe1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				70F47E841C5D0E7400ECD993 /* Controller */,
+				70F47E831C5D0E6D00ECD993 /* View */,
+				70F47E821C5D0E6700ECD993 /* Model */,
 				70F47E701C5D0E4C00ECD993 /* AppDelegate.swift */,
 				70F47E721C5D0E4C00ECD993 /* ViewController.swift */,
 				70F47E741C5D0E4C00ECD993 /* Main.storyboard */,
@@ -62,6 +65,27 @@
 				70F47E7C1C5D0E4C00ECD993 /* Info.plist */,
 			);
 			path = MemeMe1.0;
+			sourceTree = "<group>";
+		};
+		70F47E821C5D0E6700ECD993 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		70F47E831C5D0E6D00ECD993 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		70F47E841C5D0E7400ECD993 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
