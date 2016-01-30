@@ -32,6 +32,15 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tWh-Qi-FKc"/>
                                 </items>
                             </toolbar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-EW-vRi">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem id="Td3-gN-y30">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="qsQ-MV-J4K"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="8JN-lm-cPt"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
