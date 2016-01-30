@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme EditorVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeEditorVC" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,14 +26,24 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nPz-Kt-Fhm"/>
                                     <barButtonItem title="Item" systemItem="camera" id="GM1-Th-MOr">
                                         <color key="tintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="pickImageFromCamera:" destination="BYZ-38-t0r" id="jd3-cv-fQf"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="76" style="plain" systemItem="fixedSpace" id="UoS-MU-zuX"/>
-                                    <barButtonItem title="Album" id="ie1-fP-hiS"/>
+                                    <barButtonItem title="Album" id="ie1-fP-hiS">
+                                        <connections>
+                                            <action selector="pickImageFromAlbum:" destination="BYZ-38-t0r" id="kwt-Gi-e9S"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tWh-Qi-FKc"/>
                                 </items>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-EW-vRi">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-EW-vRi">
+                                <rect key="frame" x="0.0" y="8" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="9IC-z8-AFP"/>
+                                </constraints>
                                 <items>
                                     <navigationItem id="Td3-gN-y30">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="qsQ-MV-J4K"/>
@@ -41,14 +51,29 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7sx-bu-wT2">
+                                <rect key="frame" x="0.0" y="52" width="600" height="504"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7sx-bu-wT2" secondAttribute="trailing" id="2qe-jb-LUV"/>
+                            <constraint firstItem="pVg-EW-vRi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="8" id="3tY-DO-j1g"/>
+                            <constraint firstItem="7sx-bu-wT2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7Jf-aC-mx4"/>
+                            <constraint firstItem="6Y5-9q-eQp" firstAttribute="top" secondItem="7sx-bu-wT2" secondAttribute="bottom" id="Ld2-dt-zYO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6Y5-9q-eQp" secondAttribute="bottom" id="RIe-47-hYS"/>
                             <constraint firstAttribute="trailing" secondItem="6Y5-9q-eQp" secondAttribute="trailing" id="XK9-Hf-kzu"/>
+                            <constraint firstItem="pVg-EW-vRi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b5d-AD-jCL"/>
+                            <constraint firstItem="7sx-bu-wT2" firstAttribute="top" secondItem="pVg-EW-vRi" secondAttribute="bottom" id="nMD-u9-s2Z"/>
                             <constraint firstItem="6Y5-9q-eQp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oDZ-Pb-kBY"/>
+                            <constraint firstAttribute="trailing" secondItem="pVg-EW-vRi" secondAttribute="trailing" id="xr0-C5-aJo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="GM1-Th-MOr" id="EW2-xd-mvx"/>
+                        <outlet property="chosenImage" destination="7sx-bu-wT2" id="uPb-ge-fza"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
