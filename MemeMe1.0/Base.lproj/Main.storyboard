@@ -47,8 +47,16 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="Td3-gN-y30">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="qsQ-MV-J4K"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="8JN-lm-cPt"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="qsQ-MV-J4K">
+                                            <connections>
+                                                <action selector="shareButtonPressed:" destination="BYZ-38-t0r" id="pNu-Lc-AKC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="8JN-lm-cPt">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="BYZ-38-t0r" id="lkk-nN-HHP"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -96,6 +104,9 @@
                         <outlet property="bottomTextField" destination="2B2-8B-0p6" id="P0L-DF-4sY"/>
                         <outlet property="cameraButton" destination="GM1-Th-MOr" id="EW2-xd-mvx"/>
                         <outlet property="chosenImage" destination="7sx-bu-wT2" id="uPb-ge-fza"/>
+                        <outlet property="navigationBar" destination="pVg-EW-vRi" id="JmB-Dr-tm9"/>
+                        <outlet property="shareButton" destination="qsQ-MV-J4K" id="H8i-kE-TyQ"/>
+                        <outlet property="toolBar" destination="6Y5-9q-eQp" id="i6Q-bq-0GM"/>
                         <outlet property="topTextField" destination="ynO-2d-Cud" id="L8d-Q4-YWI"/>
                     </connections>
                 </viewController>
