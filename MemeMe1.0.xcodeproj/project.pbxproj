@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70D83C1E1C5E4573004027ED /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D83C1D1C5E4573004027ED /* Meme.swift */; };
 		70F47E711C5D0E4C00ECD993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F47E701C5D0E4C00ECD993 /* AppDelegate.swift */; };
 		70F47E761C5D0E4C00ECD993 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70F47E741C5D0E4C00ECD993 /* Main.storyboard */; };
 		70F47E781C5D0E4C00ECD993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F47E771C5D0E4C00ECD993 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70D83C1D1C5E4573004027ED /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		70F47E6D1C5D0E4C00ECD993 /* MemeMe1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F47E701C5D0E4C00ECD993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70F47E751C5D0E4C00ECD993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		70F47E821C5D0E6700ECD993 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				70D83C1D1C5E4573004027ED /* Meme.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70D83C1E1C5E4573004027ED /* Meme.swift in Sources */,
 				70F47E861C5D121500ECD993 /* MemeEditorVC.swift in Sources */,
 				70F47E711C5D0E4C00ECD993 /* AppDelegate.swift in Sources */,
 			);
@@ -309,6 +313,7 @@
 				70F47E811C5D0E4C00ECD993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

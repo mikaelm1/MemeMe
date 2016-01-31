@@ -8,13 +8,6 @@
 
 import UIKit
 
-struct Meme {
-    var topText: String
-    var bottomText: String
-    var originalImage: UIImage
-    var memedImage: UIImage
-}
-
 class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var chosenImage: UIImageView!
@@ -73,26 +66,19 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-        print(keyboardSize.CGRectValue().height)
         return keyboardSize.CGRectValue().height
     }
     
     // MARK: TextField methods
     func setupTextFields() {
-        topTextField.delegate = self
-        bottomTextField.delegate = self
-        
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        
-        topTextField.borderStyle = .None
-        bottomTextField.borderStyle = .None
-        
-        topTextField.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0)
-        bottomTextField.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0)
-        
-        topTextField.textAlignment = .Center
-        bottomTextField.textAlignment = .Center
+        let textFields = [topTextField, bottomTextField]
+        for field in textFields {
+            field.delegate = self
+            field.defaultTextAttributes = memeTextAttributes
+            field.borderStyle = .None
+            field.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            field.textAlignment = .Center
+        }
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -110,14 +96,21 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     // MARK: ImagePicker methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.chosenImage.image = image
+            chosenImage.image = image
             shareButton.enabled = true
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func pickImageFrom(source: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = source
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func saveImage() -> Meme {
@@ -142,18 +135,11 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     // MARK: Actions
     @IBAction func pickImageFromAlbum(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        pickImageFrom(.PhotoLibrary)
     }
     
-    
     @IBAction func pickImageFromCamera(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        pickImageFrom(.Camera)
     }
 
     @IBAction func shareButtonPressed(sender: AnyObject) {
@@ -161,9 +147,12 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         let controller = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
         presentViewController(controller, animated: true, completion: nil)
         
-        controller.completionWithItemsHandler = { (items) in
-            self.saveImage()
-            self.dismissViewControllerAnimated(true, completion: nil)
+        controller.completionWithItemsHandler = { (type, completed, items, error) in
+            if completed {
+                self.saveImage()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
         }
     }
     
